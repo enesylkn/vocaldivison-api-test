@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vocal Division</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1 id="logo">
+  <span>V</span><span>o</span><span>c</span><span>a</span><span>l</span>
+  <span>&nbsp;</span>
+  <span>D</span><span>i</span><span>v</span><span>i</span><span>s</span><span>i</span><span>o</span><span>n</span>
+  </h1>
+  <p>AI-based stem separation</p>
+</header>
+
+<main class="container">
+
+  <!-- Upload -->
+  <div class="upload-box">
+    <input type="file" id="audioFile" accept="audio/*" hidden />
+    <label for="audioFile">
+      <span>Upload audio file</span>
+      <small>WAV / MP3</small>
+    </label>
+  </div>
+
+  <!-- Options (SADECE ÇALIŞANLAR) -->
+  <div class="options">
+    <button class="option" data-stem="vocals">Vocals</button>
+    <button class="option" data-stem="instrumental">Instrumental</button>
+  </div>
+
+  <!-- Process -->
+  <div class="format-box">
+  <label for="formatSelect">Download format</label>
+  <select id="formatSelect">
+    <option value="wav" selected>WAV (High quality)</option>
+    <option value="mp3">MP3 (Smaller size)</option>
+  </select>
+  </div>
+
+  <button id="processBtn" disabled>Process</button>
+
+  <button id="removeFileBtn" class="remove-btn" hidden>
+      Remove file
+  </button>
+
+  <!-- Progress -->
+  <div class="progress-wrapper">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <p id="progressText" style="text-align:center; margin-top:8px;">
+    Waiting...
+  </p>
+
+  <!-- Result -->
+  <div class="results">
+    <button id="downloadVocals" disabled>Download Vocals</button>
+    <button id="downloadInstrumental" disabled>Download Instrumental</button>
+  </div>
+
+</main>
+
+<div id="cursor-glow"></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
